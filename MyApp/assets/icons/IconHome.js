@@ -9,14 +9,14 @@ function IconHome(props) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}>
+      xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M10 3H3V10H10V3Z"
         stroke="#9EA0A5"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        {...props}
       />
       <Path
         d="M21 3H14V10H21V3Z"
@@ -24,6 +24,7 @@ function IconHome(props) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        {...props}
       />
       <Path
         d="M21 14H14V21H21V14Z"
@@ -31,6 +32,7 @@ function IconHome(props) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        {...props}
       />
       <Path
         d="M10 14H3V21H10V14Z"
@@ -38,6 +40,7 @@ function IconHome(props) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        {...props}
       />
     </Svg>
   );

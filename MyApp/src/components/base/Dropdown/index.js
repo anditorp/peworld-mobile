@@ -88,12 +88,7 @@ const Dropdown = () => {
             <TouchableOpacity
               style={styles.option}
               onPress={() => handleSelect('priceAsc')}>
-              <Text>Price (Low to High)</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.option}
-              onPress={() => handleSelect('priceDesc')}>
-              <Text>Price (High to Low)</Text>
+              <Text>Sort by Skill</Text>
             </TouchableOpacity>
           </View>
         </View>
