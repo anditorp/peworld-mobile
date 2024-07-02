@@ -14,10 +14,10 @@ const OptionLogin = () => {
   const navigation = useNavigation();
 
   const handleButtonWorkerPress = () => {
-    navigation.navigate('Login');
+    navigation.navigate('LoginWorker');
   };
   const handleButtonRecruiterPress = () => {
-    navigation.navigate('Login');
+    navigation.navigate('LoginWorker');
   };
 
   return (

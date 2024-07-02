@@ -2,13 +2,7 @@ import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, Text} from 'react-native';
 import SearchIcon from '../../../../assets/SearchIcon';
 
-const Search = () => {
-  const [search, setSearch] = useState('');
-
-  const updateSearch = text => {
-    setSearch(text.trim());
-  };
-
+const Search = (searchInput, updateSearch, ...props) => {
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
@@ -17,7 +11,8 @@ const Search = () => {
           style={styles.searchInput}
           placeholder="Type Here..."
           onChangeText={updateSearch}
-          value={search}
+          value={searchInput}
+          {...props}
         />
       </View>
     </View>

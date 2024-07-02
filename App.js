@@ -1,7 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Login, Register, OptionLogin} from './MyApp/src/screens/index';
+import {
+  LoginWorker,
+  RegisterWorker,
+  OptionLogin,
+} from './MyApp/src/screens/index';
 import MainTab from './MyApp/src/router/MainTab';
 
 const Stack = createNativeStackNavigator();
@@ -16,13 +20,13 @@ function App() {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Login"
-          component={Login}
+          name="LoginWorker"
+          component={LoginWorker}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Register"
-          component={Register}
+          name="RegisterWorker"
+          component={RegisterWorker}
           options={{headerShown: false}}
         />
         <Stack.Screen

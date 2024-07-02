@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import SkillCard from './SkillCard';
+import axios from 'axios';
 
-const ProfileCard = () => {
+const ProfileCard = ({name, jobDesc, ...props}) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
@@ -13,8 +14,8 @@ const ProfileCard = () => {
         />
       </View>
       <View style={styles.textWrapper}>
-        <Text style={styles.name}>Louis Tomlinson</Text>
-        <Text style={styles.role}>Web Developer</Text>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.jobDesc}>{jobDesc ? jobDesc : '-'}</Text>
         <View style={styles.skillCardWrapper}>
           <SkillCard skillname="HTML" />
           <SkillCard skillname="CSS" />
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
   },
-  role: {
+  jobDesc: {
     color: '#9EA0A5',
   },
   skillCardWrapper: {

@@ -6,25 +6,47 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Input, Button} from '../../components/index';
 
-export default function Register() {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [validatePassword, setValidatePassword] = useState('');
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+
+export default function LoginWorker() {
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
   const navigation = useNavigation();
 
-  const handleButtonPress = () => {
-    navigation.navigate('Login');
+  const handleButtonPress = async () => {
+    try {
+      const res = await axios.post(
+        'https://peworld-be-three.vercel.app/user/login',
+        // `${process.env.API_BACKEND}/user/login`,
+
+        form,
+      );
+      // console.log(res.data);
+      const {data} = res.data;
+      await AsyncStorage.setItem('token', data.token);
+      navigation.navigate('MainTab');
+    } catch (error) {
+      const messageErr = error.response?.data?.message;
+      console.log(messageErr);
+      Alert.alert(messageErr || 'terjadi kesalahan');
+    }
   };
 
-  const handleLoginPress = () => {
-    navigation.navigate('Login');
+  const handleRegisterPress = () => {
+    navigation.navigate('RegisterWorker');
+  };
+
+  const handleResetPasswordPress = () => {
+    navigation.navigate('RegisterWorker');
   };
 
   return (
@@ -34,58 +56,38 @@ export default function Register() {
           <Image source={require('../../../assets/logoAuth.png')} />
         </View>
         <View style={styles.header}>
-          <Text style={styles.h1}>Signup</Text>
+          <Text style={styles.h1}>Login</Text>
           <Text style={styles.h2}>Lorom ipsum dolor si amet uegas anet.</Text>
         </View>
         <View style={styles.content}>
           <Input
-            label="Nama"
-            value={name}
-            onChangeText={setName}
-            placeholder="Masukan nama panjang"
-            keyboardType="default"
-          />
-          <Input
             label="Email"
-            value={email}
-            onChangeText={setEmail}
+            value={form.email}
+            onChangeText={value => setForm({...form, email: value})}
             placeholder="Masukan alamat email"
             keyboardType="default"
           />
           <Input
-            label="No handphone"
-            value={phone}
-            onChangeText={setPhone}
-            placeholder="Masukan np handphone"
-            keyboardType="numeric"
-          />
-          <Input
-            label="Kata sandi"
-            value={password}
-            onChangeText={setPassword}
+            label="Password"
+            value={form.password}
+            onChangeText={value => setForm({...form, password: value})}
             placeholder="Masukan kata sandi"
             keyboardType="default"
             secureTextEntry
           />
-          <Input
-            label="Konfirmasi kata sandi"
-            value={validatePassword}
-            onChangeText={setValidatePassword}
-            placeholder="Masukan Konfirmasi kata sandi"
-            keyboardType="default"
-            secureTextEntry
-          />
+        </View>
+        <View style={styles.forgetPassword}>
+          <TouchableOpacity onPress={handleResetPasswordPress}>
+            <Text style={styles.p}>Lupa kata sandi?</Text>
+          </TouchableOpacity>
         </View>
         <View>
-          <Button
-            style={{marginTop: 35}}
-            title="Daftar"
-            onPress={handleButtonPress}></Button>
+          <Button title="Masuk" onPress={handleButtonPress}></Button>
         </View>
-        <View style={styles.login}>
-          <Text>Anda sudah punya akun?</Text>
-          <TouchableOpacity onPress={handleLoginPress}>
-            <Text style={styles.linkLogin}>Masuk disini</Text>
+        <View style={styles.register}>
+          <Text>Anda belum punya akun?</Text>
+          <TouchableOpacity onPress={handleRegisterPress}>
+            <Text style={styles.linkRegister}>Daftar disini</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -124,12 +126,12 @@ const styles = StyleSheet.create({
     color: '#1F2A36',
     marginBottom: 25,
   },
-  login: {
+  register: {
     marginTop: 20,
     flexDirection: 'row',
     gap: 5,
   },
-  linkLogin: {
+  linkRegister: {
     color: '#FBB017',
   },
   image: {

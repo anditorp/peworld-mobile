@@ -4,7 +4,9 @@ import React from 'react';
 const SkillCard = ({skillname, style, ...props}) => {
   return (
     <View style={[styles.container, style]} {...props}>
-      <Text style={{color: '#fff', fontWeight: '800'}}>{skillname}</Text>
+      <Text style={{color: '#fff', fontWeight: '800'}}>
+        {skillname ? skillname : 'skill'}
+      </Text>
     </View>
   );
 };
