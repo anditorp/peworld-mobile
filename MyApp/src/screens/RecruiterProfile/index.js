@@ -18,7 +18,7 @@ import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import ImagePicker from 'react-native-image-picker';
 
-const WorkerProfile = () => {
+const RecruiterProfile = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [newSkill, setNewSkill] = useState('');
@@ -185,23 +185,6 @@ const WorkerProfile = () => {
             <Text style={styles.description}>{profile.description}</Text>
           </View>
 
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: '600',
-              color: '#000',
-              margin: 20,
-            }}>
-            Skill
-          </Text>
-          <View style={styles.skillWrapper}>
-            {profile.skills.map(skill => (
-              <View key={skill.id} style={styles.skillCard}>
-                <SkillCard skillname={skill.skill_name} />
-              </View>
-            ))}
-          </View>
-
           <View style={styles.contactWrapper}>
             <View style={styles.email}>
               <Svg
@@ -323,13 +306,12 @@ const WorkerProfile = () => {
             />
           </View>
         </View>
-        <PortofolioTab></PortofolioTab>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default WorkerProfile;
+export default RecruiterProfile;
 
 const styles = StyleSheet.create({
   contentContainer: {
