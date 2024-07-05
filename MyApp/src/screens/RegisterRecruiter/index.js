@@ -13,11 +13,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Input, Button} from '../../components/index';
 import axios from 'axios';
 
-export default function RegisterWorker() {
+export default function RegisterRecruiter() {
   const [form, setForm] = useState({
     name: '',
     email: '',
     phone: '',
+    company: '',
+    position: '',
     password: '',
     validatePassword: '',
   });
@@ -44,6 +46,8 @@ export default function RegisterWorker() {
     } else if (!/^\d{10,}$/.test(form.phone)) {
       newErrors.phone = 'No handphone must be at least 10 digits';
     }
+    if (!form.company) newErrors.company = 'Perusahaan is required';
+    if (!form.position) newErrors.position = 'Posisi is required';
     if (!form.password) newErrors.password = 'Kata sandi is required';
     if (!form.validatePassword)
       newErrors.validatePassword = 'Konfirmasi kata sandi is required';
@@ -70,11 +74,10 @@ export default function RegisterWorker() {
 
     try {
       const res = await axios.post(
-        'https://peworld-be-three.vercel.app/worker/register',
-        // `${process.env.API_BACKEND}/worker/register`,
+        'https://peworld-be-three.vercel.app/recruiter/register',
         form,
       );
-      navigation.navigate('LoginWorker');
+      navigation.navigate('LoginRecruiter');
     } catch (error) {
       const messageErr = error.response?.data?.message;
       console.log(messageErr);
@@ -83,7 +86,7 @@ export default function RegisterWorker() {
   };
 
   const handleLoginPress = () => {
-    navigation.navigate('LoginWorker');
+    navigation.navigate('LoginRecruiter');
   };
 
   return (
@@ -121,6 +124,22 @@ export default function RegisterWorker() {
             errorMessage={errors.phone}
           />
           <Input
+            label="Perusahaan"
+            value={form.company}
+            onChangeText={value => handleChange('company', value)}
+            placeholder="Masukan nama perusahaan"
+            keyboardType="default"
+            errorMessage={errors.company}
+          />
+          <Input
+            label="Posisi"
+            value={form.position}
+            onChangeText={value => handleChange('position', value)}
+            placeholder="Masukan posisi"
+            keyboardType="default"
+            errorMessage={errors.position}
+          />
+          <Input
             label="Kata sandi"
             value={form.password}
             onChangeText={value => handleChange('password', value)}
@@ -143,7 +162,8 @@ export default function RegisterWorker() {
           <Button
             style={{marginTop: 35}}
             title="Daftar"
-            onPress={handleButtonPress}></Button>
+            onPress={handleButtonPress}
+          />
         </View>
         <View style={styles.login}>
           <Text>Anda sudah punya akun?</Text>

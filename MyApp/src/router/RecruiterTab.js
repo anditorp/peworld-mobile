@@ -1,12 +1,11 @@
-// MainTab.js
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Search, WorkerProfile} from '../screens/index';
-import TabBar from '../components/module/TabBar/TabBar'; // Import TabBar component
+import {Home, Search, RecruiterProfile} from '../screens/index';
+import TabBar from '../components/module/TabBar/TabBar';
 
 const Tab = createBottomTabNavigator();
 
-function MainTab() {
+function RecruiterTab() {
   return (
     <Tab.Navigator tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
@@ -16,12 +15,12 @@ function MainTab() {
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="WorkerProfile"
-        component={WorkerProfile}
+        name="RecruiterProfile"
+        component={RecruiterProfile}
         options={{headerShown: false}}
       />
     </Tab.Navigator>
   );
 }
 
-export default MainTab;
+export default RecruiterTab;

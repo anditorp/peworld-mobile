@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Button, SkillCard} from '../../components';
+import {Button, SkillCardProfile} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import Svg, {Path} from 'react-native-svg';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
@@ -301,7 +301,7 @@ const WorkerEdit = () => {
                   <TouchableOpacity
                     style={{flexDirection: 'row', alignItems: 'center'}}
                     onPress={() => handleDeleteSkill(skill.id)}>
-                    <SkillCard skillname={skill.skill_name} />
+                    <SkillCardProfile skillname={skill.skill_name} />
                     <DeleteIcon />
                   </TouchableOpacity>
                 </View>

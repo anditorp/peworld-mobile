@@ -1,65 +1,57 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import SkillCard from './SkillCard';
-import axios from 'axios';
 
-const ProfileCard = ({name, jobDesc, ...props}) => {
+const ProfileCard = ({worker}) => {
+  const {name, job_desc, photo, skills} = worker;
+
   return (
-    <View style={styles.container}>
-      <View style={styles.imageWrapper}>
-        <Image
-          source={require('../../../../assets/user-dumy.jpeg')}
-          style={styles.image}
-          resizeMode="cover"
-        />
-      </View>
-      <View style={styles.textWrapper}>
+    <TouchableOpacity style={styles.card}>
+      <Image source={{uri: photo}} style={styles.profileImage} />
+      <View style={styles.cardContent}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.jobDesc}>{jobDesc ? jobDesc : '-'}</Text>
-        <View style={styles.skillCardWrapper}>
-          <SkillCard skillname="HTML" />
-          <SkillCard skillname="CSS" />
-          <SkillCard skillname="JavaScript" />
+        <Text style={styles.jobDesc}>{job_desc}</Text>
+        <View style={styles.skillContainer}>
+          {skills.map(skill => (
+            <SkillCard key={skill.id} skill={skill} />
+          ))}
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-export default ProfileCard;
-
 const styles = StyleSheet.create({
-  container: {
+  card: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    paddingVertical: 10,
-    marginVertical: 6,
-    marginHorizontal: 10,
+    alignItems: 'center',
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E5E5',
   },
-  image: {
+  profileImage: {
     width: 80,
     height: 80,
-    borderRadius: 50,
-    overflow: 'hidden',
+    borderRadius: 40,
+    marginRight: 12,
   },
-  imageWrapper: {
-    marginRight: 10,
-  },
-  textWrapper: {
-    justifyContent: 'center',
-    rowGap: 2,
+  cardContent: {
+    flex: 1,
   },
   name: {
-    color: '#000',
+    fontSize: 18,
     fontWeight: 'bold',
-    fontSize: 17,
+    marginBottom: 4,
   },
   jobDesc: {
-    color: '#9EA0A5',
+    fontSize: 16,
+    color: '#666',
+    marginBottom: 8,
   },
-  skillCardWrapper: {
+  skillContainer: {
     flexDirection: 'row',
-    columnGap: 7,
+    flexWrap: 'wrap',
   },
 });
+
+export default ProfileCard;

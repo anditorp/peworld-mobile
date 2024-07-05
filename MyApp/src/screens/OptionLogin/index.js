@@ -17,7 +17,7 @@ const OptionLogin = () => {
     navigation.navigate('LoginWorker');
   };
   const handleButtonRecruiterPress = () => {
-    navigation.navigate('LoginWorker');
+    navigation.navigate('LoginRecruiter');
   };
 
   return (

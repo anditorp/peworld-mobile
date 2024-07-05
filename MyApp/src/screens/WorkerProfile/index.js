@@ -11,7 +11,7 @@ import {
   TextInput,
 } from 'react-native';
 import axios from 'axios';
-import {Button, SkillCard, PortofolioTab} from '../../components/index';
+import {Button, SkillCardProfile, PortofolioTab} from '../../components/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Svg, {G, Defs, ClipPath, Rect, Path} from 'react-native-svg';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
@@ -93,8 +93,6 @@ const WorkerProfile = () => {
       );
       console.log('Update Photo Response:', response.data);
       if (response.data.status === 'success') {
-        // Optionally, update local profile state or handle success state
-        // For example:
         // setProfile(prevProfile => ({
         //   ...prevProfile,
         //   photo: response.data.data.photo_url,
@@ -104,7 +102,6 @@ const WorkerProfile = () => {
       }
     } catch (error) {
       console.error('Error updating profile photo:', error);
-      // Handle error state or retry logic
     }
   };
 
@@ -197,7 +194,7 @@ const WorkerProfile = () => {
           <View style={styles.skillWrapper}>
             {profile.skills.map(skill => (
               <View key={skill.id} style={styles.skillCard}>
-                <SkillCard skillname={skill.skill_name} />
+                <SkillCardProfile skillname={skill.skill_name} />
               </View>
             ))}
           </View>
@@ -225,7 +222,7 @@ const WorkerProfile = () => {
                   strokeLinejoin="round"
                 />
               </Svg>
-              <Text>Louistommo@gmail.com</Text>
+              <Text>andito@gmail.com</Text>
             </View>
             <View style={styles.instagram}>
               <Svg
@@ -263,7 +260,7 @@ const WorkerProfile = () => {
                   </ClipPath>
                 </Defs>
               </Svg>
-              <Text>@Louist91</Text>
+              <Text>@anditorp</Text>
             </View>
             <View style={styles.github}>
               <Svg
@@ -287,7 +284,7 @@ const WorkerProfile = () => {
                   </ClipPath>
                 </Defs>
               </Svg>
-              <Text>@Louistommo</Text>
+              <Text>@anditorp</Text>
             </View>
             <View style={styles.gitlab}>
               <Svg
@@ -311,7 +308,7 @@ const WorkerProfile = () => {
                   </ClipPath>
                 </Defs>
               </Svg>
-              <Text>@Louistommo91</Text>
+              <Text>@anditorizqi</Text>
             </View>
             <Button
               onPress={navigateToEditProfile}

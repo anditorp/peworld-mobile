@@ -90,12 +90,14 @@ const PortofolioTab = () => {
               </>
             ) : (
               <>
-                <Text style={styles.title}>{item.position}</Text>
-                <Text>{item.company}</Text>
-                <Text>
-                  {item.work_month} {item.work_year}
-                </Text>
-                <Text>{item.description}</Text>
+                <View>
+                  <Text style={styles.title}>{item.position}</Text>
+                  <Text>{item.company}</Text>
+                  <Text>
+                    {item.work_year} {item.work_month} - 23 Dec
+                  </Text>
+                  <Text>{item.description}</Text>
+                </View>
               </>
             )}
           </View>
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   link: {

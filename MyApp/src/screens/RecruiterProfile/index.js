@@ -18,15 +18,12 @@ import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import ImagePicker from 'react-native-image-picker';
 
-const RecruiterProfile = () => {
+const RecruiterProfile = ({navigation, route}) => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [newSkill, setNewSkill] = useState('');
-  const navigation = useNavigation();
   const [photo, setPhoto] = useState(null);
 
   const handleChoosePhoto = () => {
-    // Display an alert with the options
     Alert.alert(
       'Choose Photo',
       'Do you want to take a photo from:',
@@ -82,7 +79,7 @@ const RecruiterProfile = () => {
         name: 'photo.jpg',
       });
       const response = await axios.post(
-        'https://peworld-be-three.vercel.app/worker/update-profile',
+        'https://peworld-be-three.vercel.app/recruiter/update-profile',
         formData,
         {
           headers: {
@@ -93,12 +90,10 @@ const RecruiterProfile = () => {
       );
       console.log('Update Photo Response:', response.data);
       if (response.data.status === 'success') {
-        // Optionally, update local profile state or handle success state
-        // For example:
-        // setProfile(prevProfile => ({
-        //   ...prevProfile,
-        //   photo: response.data.data.photo_url,
-        // }));
+        setProfile(prevProfile => ({
+          ...prevProfile,
+          photo: response.data.data.photo_url,
+        }));
       } else {
         throw new Error('Failed to update profile photo');
       }
@@ -112,7 +107,7 @@ const RecruiterProfile = () => {
     try {
       const token = await AsyncStorage.getItem('token');
       const response = await axios.get(
-        'https://peworld-be-three.vercel.app/worker/profile',
+        'https://peworld-be-three.vercel.app/recruiter/profile',
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -155,7 +150,7 @@ const RecruiterProfile = () => {
   }
 
   const navigateToEditProfile = () => {
-    navigation.navigate('WorkerEdit');
+    navigation.navigate('RecruiterEdit');
   };
 
   return (
@@ -180,8 +175,8 @@ const RecruiterProfile = () => {
           </View>
           <View style={styles.descriptionWrapper}>
             <Text style={styles.name}>{profile.name}</Text>
-            <Text style={styles.skill}>{profile.job_desc}</Text>
-            <Text style={styles.city}>{profile.domicile}</Text>
+            <Text style={styles.skill}>{profile.company}</Text>
+            <Text style={styles.city}>{profile.city}</Text>
             <Text style={styles.description}>{profile.description}</Text>
           </View>
 
@@ -208,7 +203,7 @@ const RecruiterProfile = () => {
                   strokeLinejoin="round"
                 />
               </Svg>
-              <Text>Louistommo@gmail.com</Text>
+              <Text>louistom@gmail.com</Text>
             </View>
             <View style={styles.instagram}>
               <Svg
@@ -246,7 +241,7 @@ const RecruiterProfile = () => {
                   </ClipPath>
                 </Defs>
               </Svg>
-              <Text>@Louist91</Text>
+              <Text>{profile.instagram}</Text>
             </View>
             <View style={styles.github}>
               <Svg

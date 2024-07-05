@@ -1,10 +1,46 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<p align="center">
+  <img src="./MyApp//assets//logo.png" alt="Logo" >
+</p>
 
-# Getting Started
+##
+
+Peworld is a leading platform for finding and connecting the best talents with quality companies. We are committed to shaping the future in the Fourth Industrial Revolution by providing access to the finest talent network and an efficient recruitment experience.
+
+## Tech Stack
+
+**Programming language:** JavaScript
+
+**JavaScript Library:** React
+
+**Framework React:** React Native
+
+**Framework CSS:** Tailwind CSS
+
+**Server-side Framework:** Express.js
+
+**Database:** PostgreSQL
+
+[![My Skills](https://skillicons.dev/icons?i=js,react,tailwind,express,postgres,vercel,)](https://skillicons.dev)
+
+## Features
+
+⚡ Users can create worker and recruiter accounts
+
+⚡ Users can edit their profiles (worker or recruiter)
+
+⚡ Users can change photo with launch camera
+
+⚡ Recruiters can send recruitment invitations to workers
+
+⚡ Worker can get notification from recruiter invitations
+
+⚡ Workers can add and delete portfolios and skills
+
+## Getting Started
 
 > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+## Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -18,7 +54,7 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
+## Start your Application
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
@@ -32,48 +68,96 @@ npm run android
 yarn android
 ```
 
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## Screenshot
 
-Now that you have successfully run the app, let's modify it.
+<p align="center" display=flex>
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+<table>
+<tr>
+    <td>Option Login</td>
+    <td>Login</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/option-login.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/login.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+<tr>
+    <td>Register Worker</td>
+    <td>Register Recruiter</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/register-worker.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/register-recruiter.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+<tr>
+    <td>Home</td>
+    <td>Inbox Worker</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/home.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/Inbox.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+    <td>Search Worker</td>
+    <td>Search Recruiter</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/search.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/search-recruiter.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+    <td>Profile Worker</td>
+    <td>Profile Recruiter</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/worker-profile.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/recruiter-profile.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+    <td>Worker Portofolio</td>
+    <td>Worker Experience</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/worker-portofolio.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/worker-experience.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+    <td>Worker Edit Profile</td>
+    <td>Worker Edit Portofolio</td>
+  </tr>
+ <tr>
+    <td><image src="./MyApp/assets/screenshot/worker-edit.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/recruiter-edit.png" alt="Landing Page After Login" width=100%/></td>
+  </tr>
+   
+</table>  
+</p>
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Contact
 
-## Congratulations! :tada:
+<a href="mailto:muhamadandito78@gmail.com">
+  <img src="https://skillicons.dev/icons?i=gmail" alt="Gmail" style="width: 15px; height: 15px;"> : muhamadandito78@gmail.com
+</a>
+<br>
+<a href="https://www.linkedin.com/in/anditorp/">
+  <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn" style="width: 15px; height: 15px;"> : https://www.linkedin.com/in/anditorp/
+</a>
+<br>
+<a href="https://github.com/anditorp">
+  <img src="https://skillicons.dev/icons?i=github" alt="GitHub" style="width: 15px; height: 15px;"> : https://github.com/anditorp/
+</a>
+<br>
 
-You've successfully run and modified your React Native App. :partying_face:
+## Related Project
 
-### Now what?
+<a href="https://github.com/anditorp/peworld-fe">
+  <img src="https://skillicons.dev/icons?i=github" alt="GitHub" style="width: 15px; height: 15px;"> : peworld-web
+</a>
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+<a href="https://github.com/anditorp/peworld-be">
+  <img src="https://skillicons.dev/icons?i=github" alt="GitHub" style="width: 15px; height: 15px;"> : peworld-be
+</a>
 
-# Troubleshooting
+## License
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

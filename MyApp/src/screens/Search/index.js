@@ -12,7 +12,7 @@ import {
   Modal,
 } from 'react-native';
 import axios from 'axios';
-import ProfileCard from '../../components/base/Card/ProfileCard';
+import ProfileCardSearch from '../../components/base/Card/ProfileCardSearch';
 import Svg, {Path} from 'react-native-svg';
 
 const SearchScreen = () => {
@@ -47,7 +47,7 @@ const SearchScreen = () => {
 
       const {data} = res.data;
       setWorker(current => [...current, ...data]);
-      setLoading(false); // Set loading to false after successful data fetch
+      setLoading(false);
     } catch (error) {
       setLoading(false);
       setError('Failed to load data');
@@ -231,12 +231,16 @@ const SearchScreen = () => {
             </View>
           </View>
         </Modal>
-        <View>
+        <View style={styles.profileCardSearch}>
           <FlatList
             data={worker}
             keyExtractor={(item, index) => `${item.id}_${index}`}
             renderItem={({item}) => (
-              <ProfileCard name={item.name} jobDesc={item.job_desc} />
+              <ProfileCardSearch
+                name={item.name}
+                jobDesc={item.job_desc}
+                photo={item.photo}
+              />
             )}
             ListFooterComponent={renderLoader}
             onEndReached={loadMoreItem}
@@ -292,6 +296,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#d3d3d3',
     borderRadius: 5,
   },
+  profileCardSearch: {},
 });
 
 export default SearchScreen;

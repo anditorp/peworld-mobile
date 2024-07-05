@@ -1,11 +1,6 @@
-// TabBar.js
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
-import {
-  IconHome,
-  IconSearch,
-  IconProfile,
-} from '../../../../assets/icons/index';
+import {IconHome, IconSearch, IconInbox} from '../../../../assets/icons/index';
 import ProfileIcon from '../../../../assets/user-dumy.jpeg';
 
 export default function TabBar({state, descriptors, navigation}) {
@@ -46,6 +41,8 @@ export default function TabBar({state, descriptors, navigation}) {
             return <IconHome stroke={isFocused ? '#673ab7' : '#222'} />;
           if (label === 'Search')
             return <IconSearch stroke={isFocused ? '#673ab7' : '#222'} />;
+          if (label === 'Inbox')
+            return <IconInbox stroke={isFocused ? '#673ab7' : '#222'} />;
           if (label === 'WorkerProfile')
             return (
               <Image
@@ -54,13 +51,27 @@ export default function TabBar({state, descriptors, navigation}) {
                   width: 24,
                   height: 24,
                   borderRadius: 99,
-                  borderWidth: isFocused ? 2 : 0, // Add border width when focused
-                  borderColor: isFocused ? '#673ab7' : 'transparent', // Border color when focused
+                  borderWidth: isFocused ? 2 : 0,
+                  borderColor: isFocused ? '#673ab7' : 'transparent',
                   padding: isFocused ? 4 : 0,
                 }}
               />
             );
-          return null; // Return null as a fallback
+          if (label === 'RecruiterProfile')
+            return (
+              <Image
+                source={ProfileIcon}
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: 99,
+                  borderWidth: isFocused ? 2 : 0,
+                  borderColor: isFocused ? '#673ab7' : 'transparent',
+                  padding: isFocused ? 4 : 0,
+                }}
+              />
+            );
+          return null;
         };
 
         return (

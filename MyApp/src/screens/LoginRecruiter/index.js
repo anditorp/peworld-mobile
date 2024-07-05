@@ -15,7 +15,7 @@ import {Input, Button} from '../../components/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-export default function LoginWorker() {
+export default function LoginRecruiter() {
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -33,7 +33,7 @@ export default function LoginWorker() {
       // console.log(res.data);
       const {data} = res.data;
       await AsyncStorage.setItem('token', data.token);
-      navigation.navigate('WorkerTab');
+      navigation.navigate('RecruiterTab');
     } catch (error) {
       const messageErr = error.response?.data?.message;
       console.log(messageErr);
@@ -42,11 +42,11 @@ export default function LoginWorker() {
   };
 
   const handleRegisterPress = () => {
-    navigation.navigate('RegisterWorker');
+    navigation.navigate('RegisterRecruiter');
   };
 
   const handleResetPasswordPress = () => {
-    navigation.navigate('RegisterWorker');
+    navigation.navigate('RegisterRecruiter');
   };
 
   return (

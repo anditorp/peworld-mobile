@@ -1,23 +1,28 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const SkillCard = ({skillname, style, ...props}) => {
+const SkillCard = ({skill}) => {
+  const {skill_name} = skill;
+
   return (
-    <View style={[styles.container, style]} {...props}>
-      <Text style={{color: '#fff', fontWeight: '800'}}>
-        {skillname ? skillname : 'skill'}
-      </Text>
+    <View style={styles.skillCard}>
+      <Text style={styles.skillText}>{skill_name}</Text>
     </View>
   );
 };
 
-export default SkillCard;
-
 const styles = StyleSheet.create({
-  container: {
+  skillCard: {
     backgroundColor: '#FBB017',
-    alignSelf: 'flex-start',
-    borderRadius: 5,
-    padding: 5,
+    borderRadius: 16,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    margin: 4,
+  },
+  skillText: {
+    fontSize: 14,
+    color: '#333',
   },
 });
+
+export default SkillCard;
