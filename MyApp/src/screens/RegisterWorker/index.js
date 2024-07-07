@@ -55,7 +55,6 @@ export default function RegisterWorker() {
       newErrors.validatePassword =
         'Password and confirmation password do not match';
     }
-
     return newErrors;
   };
 

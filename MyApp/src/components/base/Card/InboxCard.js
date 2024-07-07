@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import axios from 'axios';
 
 const InboxCard = ({company}) => {
   return (
@@ -7,7 +8,7 @@ const InboxCard = ({company}) => {
       <View style={styles.textWrapper}>
         <Text style={styles.name}>{company ? company : 'PT. Harus Bisa'}</Text>
         <Text style={styles.jobDesc}>
-          Congratulations, you have been recruited by{' '}
+          Congratulations, you have been recruited by {'\n'}
           {company ? company : 'PT. Harus Bisa'}
         </Text>
       </View>
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 8,
     paddingVertical: 10,
+    paddingHorizontal: 20,
     marginVertical: 6,
     marginHorizontal: 10,
   },

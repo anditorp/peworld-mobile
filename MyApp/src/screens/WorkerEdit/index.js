@@ -63,7 +63,8 @@ const WorkerEdit = () => {
       } else if (response.errorCode) {
         console.log('ImagePicker Error:', response.errorMessage);
       } else {
-        setPhoto(response);
+        // console.log(response);
+        setPhoto(response.assets[0]);
       }
     });
   };
@@ -241,7 +242,9 @@ const WorkerEdit = () => {
           <View style={styles.imageWrapper}>
             <Image
               source={
-                profile.photo
+                photo
+                  ? {uri: photo.uri}
+                  : profile.photo
                   ? {uri: profile.photo}
                   : require('../../../../MyApp/assets/user-dumy.jpeg')
               }

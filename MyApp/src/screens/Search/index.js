@@ -34,7 +34,6 @@ const SearchScreen = () => {
     try {
       const res = await axios.get(
         'https://peworld-be-three.vercel.app/worker',
-        // `${process.env.API_BACKEND}/worker`,
         {
           params: {
             limit: params.limit,
@@ -240,6 +239,7 @@ const SearchScreen = () => {
                 name={item.name}
                 jobDesc={item.job_desc}
                 photo={item.photo}
+                userId={item.id}
               />
             )}
             ListFooterComponent={renderLoader}
@@ -256,7 +256,6 @@ const styles = StyleSheet.create({
   containerSearch: {
     marginTop: 50,
     flexDirection: 'row',
-    // justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
   },

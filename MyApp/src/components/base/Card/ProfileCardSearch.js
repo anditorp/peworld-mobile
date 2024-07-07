@@ -1,10 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Button from '../Button/index';
 
-const ProfileCardSearch = ({name, jobDesc, skill, photo, ...props}) => {
+const ProfileCardSearch = ({name, jobDesc, photo, userId}) => {
   const [role, setRole] = useState(null);
 
   useEffect(() => {
@@ -29,6 +36,25 @@ const ProfileCardSearch = ({name, jobDesc, skill, photo, ...props}) => {
     fetchUserRole();
   }, []);
 
+  const handleHire = async () => {
+    try {
+      const token = await AsyncStorage.getItem('token');
+      const response = await axios.post(
+        'https://peworld-be-three.vercel.app/hire',
+        {worker_id: userId},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      Alert.alert('Success', 'Worker has been hired successfully');
+    } catch (error) {
+      console.error('Failed to hire worker:', error);
+      Alert.alert('Error', 'Failed to hire worker');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
@@ -39,7 +65,7 @@ const ProfileCardSearch = ({name, jobDesc, skill, photo, ...props}) => {
         <Text style={styles.jobDesc}>{jobDesc ? jobDesc : '-'}</Text>
         {role === 'recruiter' && (
           <View style={styles.buttonWrapper}>
-            <Button title="Hire" />
+            <Button title="Hire" onPress={handleHire} />
           </View>
         )}
       </View>
