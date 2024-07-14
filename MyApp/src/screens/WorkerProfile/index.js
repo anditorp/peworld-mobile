@@ -91,7 +91,7 @@ const WorkerProfile = () => {
           },
         },
       );
-      console.log('Update Photo Response:', response.data);
+      // console.log('Update Photo Response:', response.data);
       if (response.data.status === 'success') {
         // setProfile(prevProfile => ({
         //   ...prevProfile,
@@ -116,7 +116,7 @@ const WorkerProfile = () => {
           },
         },
       );
-      console.log('API Response:', response.data);
+      // console.log('API Response:', response.data);
       if (response.data.status !== 'success') {
         throw new Error('Failed to fetch profile data');
       }
@@ -169,11 +169,11 @@ const WorkerProfile = () => {
               style={styles.image}
               resizeMode="cover"
             />
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={{alignSelf: 'center'}}
               onPress={handleChoosePhoto}>
               <Text>Choose Photo</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
           <View style={styles.descriptionWrapper}>
             <Text style={styles.name}>{profile.name}</Text>

@@ -56,7 +56,10 @@ const Inbox = () => {
       <Text style={styles.title}>Inbox</Text>
       {inbox.map(item => (
         <View key={item.id} style={styles.inboxCard}>
-          <InboxCard company={item.company} />
+          <InboxCard
+            company={item.company}
+            message_purpose={item.message_purpose}
+          />
         </View>
       ))}
     </View>

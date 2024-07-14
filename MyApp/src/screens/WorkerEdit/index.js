@@ -28,6 +28,10 @@ const WorkerEdit = () => {
   const [newSkill, setNewSkill] = useState('');
   const navigation = useNavigation();
   const [photo, setPhoto] = useState(null);
+  const [portfolios, setPortfolios] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+  const [newPortfolio, setNewPortfolio] = useState('');
+  const [newExperience, setNewExperience] = useState('');
 
   const handleChoosePhoto = () => {
     // Display an alert with the options
@@ -80,7 +84,7 @@ const WorkerEdit = () => {
       } else if (response.errorCode) {
         console.log('ImagePicker Error:', response.errorMessage);
       } else {
-        setPhoto(response);
+        setPhoto(response.assets[0]);
       }
     });
   };
@@ -151,9 +155,9 @@ const WorkerEdit = () => {
         },
       );
 
-      console.log('Profile Updated:', response.data);
+      // console.log('Profile Updated:', response.data);
       Alert.alert('Profile Updated Successfully');
-      navigation.navigate('WorkerProfile', {updated: true});
+      // navigation.navigate('WorkerProfile', {updated: true});
     } catch (error) {
       console.error('Error updating profile:', error);
       Alert.alert('Failed to update profile');

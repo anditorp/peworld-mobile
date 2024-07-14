@@ -10,8 +10,12 @@ import OptionLogin from './OptionLogin';
 import WorkerEdit from './WorkerEdit';
 import RecruiterEdit from './RecruiterEdit';
 import Inbox from './Inbox.js';
+import EditExperienceScreen from './EditExperienceScreen';
+import EditPortfolioScreen from './EditPortfolioScreen';
 
 export {
+  EditExperienceScreen,
+  EditPortfolioScreen,
   Home,
   LoginWorker,
   OptionLogin,

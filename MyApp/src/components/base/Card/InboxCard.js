@@ -2,15 +2,12 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import axios from 'axios';
 
-const InboxCard = ({company}) => {
+const InboxCard = ({company, message_purpose}) => {
   return (
     <View style={styles.container}>
       <View style={styles.textWrapper}>
         <Text style={styles.name}>{company ? company : 'PT. Harus Bisa'}</Text>
-        <Text style={styles.jobDesc}>
-          Congratulations, you have been recruited by {'\n'}
-          {company ? company : 'PT. Harus Bisa'}
-        </Text>
+        <Text style={styles.jobDesc}>{message_purpose}</Text>
       </View>
     </View>
   );

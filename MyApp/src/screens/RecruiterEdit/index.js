@@ -107,7 +107,7 @@ const RecruiterEdit = () => {
       } else if (response.errorCode) {
         console.log('ImagePicker Error:', response.errorMessage);
       } else {
-        setPhoto(response);
+        setPhoto(response.assets[0]);
       }
     });
   };
@@ -123,7 +123,7 @@ const RecruiterEdit = () => {
       } else if (response.errorCode) {
         console.log('ImagePicker Error:', response.errorMessage);
       } else {
-        setPhoto(response);
+        setPhoto(response.assets[0]);
       }
     });
   };
@@ -185,8 +185,15 @@ const RecruiterEdit = () => {
           <Text style={styles.sectionTitle}>Edit Profile</Text>
           <View style={styles.imageWrapper}>
             <Image
+              // source={
+              //   profile.photo
+              //     ? {uri: profile.photo}
+              //     : require('../../../../MyApp/assets/user-dumy.jpeg')
+              // }
               source={
-                profile.photo
+                photo
+                  ? {uri: photo.uri}
+                  : profile.photo
                   ? {uri: profile.photo}
                   : require('../../../../MyApp/assets/user-dumy.jpeg')
               }
@@ -254,7 +261,7 @@ const RecruiterEdit = () => {
             />
           </View>
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Linkedin</Text>
+            <Text style={styles.label}>Email</Text>
             <TextInput
               style={styles.input}
               value={linkedin}

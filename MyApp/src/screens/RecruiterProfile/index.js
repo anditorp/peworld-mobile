@@ -64,7 +64,7 @@ const RecruiterProfile = ({navigation, route}) => {
     };
     launchImageLibrary(options, response => {
       if (response.uri) {
-        setPhoto(response);
+        setPhoto(response.assets[0]);
       }
     });
   };
@@ -203,7 +203,7 @@ const RecruiterProfile = ({navigation, route}) => {
                   strokeLinejoin="round"
                 />
               </Svg>
-              <Text>louistom@gmail.com</Text>
+              <Text>{profile.linkedin}</Text>
             </View>
             <View style={styles.instagram}>
               <Svg
@@ -243,7 +243,7 @@ const RecruiterProfile = ({navigation, route}) => {
               </Svg>
               <Text>{profile.instagram}</Text>
             </View>
-            <View style={styles.github}>
+            {/* <View style={styles.github}>
               <Svg
                 width="24"
                 height="24"
@@ -290,7 +290,7 @@ const RecruiterProfile = ({navigation, route}) => {
                 </Defs>
               </Svg>
               <Text>@Louistommo91</Text>
-            </View>
+            </View> */}
             <Button
               onPress={navigateToEditProfile}
               title={'Edit Profile'}

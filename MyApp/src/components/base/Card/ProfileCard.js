@@ -4,10 +4,13 @@ import SkillCard from './SkillCard';
 
 const ProfileCard = ({worker}) => {
   const {name, job_desc, photo, skills} = worker;
-
+  const defaultImage = require('../../../../assets/dummy-user.png');
   return (
     <TouchableOpacity style={styles.card}>
-      <Image source={{uri: photo}} style={styles.profileImage} />
+      <Image
+        source={photo ? {uri: photo} : defaultImage}
+        style={styles.profileImage}
+      />
       <View style={styles.cardContent}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.jobDesc}>{job_desc}</Text>

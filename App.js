@@ -9,6 +9,8 @@ import {
   OptionLogin,
   WorkerEdit,
   RecruiterEdit,
+  EditExperienceScreen,
+  EditPortfolioScreen,
 } from './MyApp/src/screens/index';
 import WorkerTab from './MyApp/src/router/WorkerTab';
 import RecruiterTab from './MyApp/src/router/RecruiterTab';
@@ -77,6 +79,16 @@ function App() {
           <Stack.Screen
             name="WorkerEdit"
             component={WorkerEdit}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="EditPortfolioScreen"
+            component={EditPortfolioScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="EditExperienceScreen"
+            component={EditExperienceScreen}
             options={{headerShown: false}}
           />
           <Stack.Screen
