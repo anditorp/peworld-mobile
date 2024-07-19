@@ -150,7 +150,7 @@ This is one way to run your app — you can also run it directly from within And
 
 ## Related Project
 
-<a href="https://github.com/anditorp/peworld-fe">
+<a href="https://github.com/anditorp/peworld-web">
   <img src="https://skillicons.dev/icons?i=github" alt="GitHub" style="width: 15px; height: 15px;"> : peworld-web
 </a>
 <br>
