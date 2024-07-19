@@ -157,7 +157,11 @@ const PortofolioTab = () => {
                   <DeleteIcon />
                 </TouchableOpacity>
                 {item.image && (
-                  <Image source={{uri: item.image}} style={styles.image} />
+                  <Image
+                    source={{uri: item.image}}
+                    style={styles.image}
+                    resizeMode="contain"
+                  />
                 )}
               </>
             ) : (

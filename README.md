@@ -119,7 +119,7 @@ This is one way to run your app — you can also run it directly from within And
     <td>Worker Experience</td>
   </tr>
  <tr>
-    <td><image src="./MyApp/assets/screenshot/worker-portofolio2.png" alt="Landing Page" width=100%></td>
+    <td><image src="./MyApp/assets/screenshot/worker-portofolio (2).png" alt="Landing Page" width=100%></td>
     <td><image src="./MyApp/assets/screenshot/worker-experience.png" alt="Landing Page After Login" width=100%/></td>
   </tr>
     <td>Worker Edit Profile</td>
